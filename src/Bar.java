@@ -38,7 +38,14 @@ public class Bar implements Comparable<Bar> {
             throw new NullPointerException("Input is null.");
         }
         if (this == that) return 0;
-        return Integer.compare(this.value, that.value);
+        //reverse sort
+        return -Integer.compare(this.value, that.value);
+    }
+
+    // For purpose to unit test the reverse sort in BarCharRacer
+    @Override
+    public String toString() {
+        return  this.name + "_" + this.value;
     }
 
 

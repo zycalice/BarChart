@@ -55,13 +55,11 @@ class BarTest {
 
     @Test
     void compareToGreater() {
-        assertEquals(1, b1.compareTo(b2));
+        assertEquals(-1, b1.compareTo(b2));
     }
 
     @Test
-    void compareToLess() {
-        assertEquals(-1, b2.compareTo(b1));
-    }
+    void compareToLess() { assertEquals(1, b2.compareTo(b1)); }
 
     @Test
     void compareToEqual1() {
@@ -78,6 +76,11 @@ class BarTest {
         Assertions.assertThrows(NullPointerException.class, () -> {
             int result = b1.compareTo(null);
         });
+    }
+
+    @Test
+    void testToString(){
+        assertEquals("bar1_20", b1.toString());
     }
 
 }
