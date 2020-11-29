@@ -58,7 +58,7 @@ public class BarChartRacer {
      * @param numBarsToAdd number of bars to add = number of bars to show
      */
     private void sortAddBars (BarChart bc, ArrayList<Bar> bars, int numBarsToAdd){
-        sortBars(bars);
+        bars = sortBars(bars);
         for (int i=0; i<numBarsToAdd; i++){
             bc.add(bars.get(i).getName(), bars.get(i).getValue(), bars.get(i).getCategory());
         }
