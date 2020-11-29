@@ -32,10 +32,11 @@ public class Bar implements Comparable<Bar> {
     }
 
     // Compare two bars by value.
+    // Reverse sorted.
     @Override
     public int compareTo(Bar that){
         if (that == null){
-            throw new NullPointerException("Input is null.");
+            throw new NullPointerException("Input (should be bar) is null.");
         }
         if (this == that) return 0;
         //reverse sort
@@ -47,6 +48,5 @@ public class Bar implements Comparable<Bar> {
     public String toString() {
         return  this.name + "_" + this.value;
     }
-
 
 }

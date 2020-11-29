@@ -13,12 +13,13 @@ public class BarChartRacer {
      * constructor, set numBarsToShow to a user input
      */
     public BarChartRacer(){
+        //ask the user for the filename
+        System.out.println("Please enter the data file including .txt at the end.");
+        this.fileName = ui.validTXTFileName();
+
         //ask the user for the number of bars they want to see
         System.out.println("Please enter the number of bars you want to see.");
         this.numBarsToShow = ui.validInteger(0, 1000000);
-
-        System.out.println("Please enter the data file including .txt at the end.");
-        this.fileName = ui.validTXTFileName();
     }
 
 
