@@ -14,7 +14,7 @@ public class BarChartRacer {
      */
     public BarChartRacer(){
         //ask the user for the filename
-        System.out.println("Please enter the data file including .txt at the end.");
+        System.out.println("Please enter the full data file path including .txt at the end.");
         this.fileName = ui.validTXTFileName();
 
         //ask the user for the number of bars they want to see

@@ -1,8 +1,3 @@
-/*
-Authors: Xinyi Li, Yuchen Zhang
-Inherited from HangmanController
- */
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -15,7 +10,7 @@ public class UserInputCheck {
      */
     protected boolean inputIsFileName(String userInput, String fileType){
         String[] splitInput =  userInput.split("\\.");
-        if (splitInput.length==2) return splitInput[1].equals(fileType);
+        if (splitInput.length>1) return splitInput[splitInput.length-1].equals(fileType);
         else return false;
     }
 
