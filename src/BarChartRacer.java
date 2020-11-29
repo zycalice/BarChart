@@ -117,7 +117,7 @@ public class BarChartRacer {
                     StdDraw.show();
                     StdDraw.pause(90);
 
-                    //clear and reset
+                    //reset and clear
                     bc.reset();
                     StdDraw.clear();
 
