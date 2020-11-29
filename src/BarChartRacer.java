@@ -41,7 +41,8 @@ public class BarChartRacer {
     }
 
     /**
-     * reverse sorted bars (descending order), separated this for unit testing purposes
+     * reverse sorted bars (descending order)
+     * separated this for unit testing purposes, made it public for this purpose as well
      * @param bars an array list of bars
      * @return a sorted array list of bars in the reverse order
      */
@@ -56,7 +57,7 @@ public class BarChartRacer {
      * @param bars an array list of bars
      * @param numBarsToAdd number of bars to add = number of bars to show
      */
-    public void sortAddBars (BarChart bc, ArrayList<Bar> bars, int numBarsToAdd){
+    private void sortAddBars (BarChart bc, ArrayList<Bar> bars, int numBarsToAdd){
         sortBars(bars);
         for (int i=0; i<numBarsToAdd; i++){
             bc.add(bars.get(i).getName(), bars.get(i).getValue(), bars.get(i).getCategory());
