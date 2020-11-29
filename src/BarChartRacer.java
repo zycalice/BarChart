@@ -40,6 +40,7 @@ public class BarChartRacer {
         return fileName;
     }
 
+
     /**
      * reverse sorted bars (descending order)
      * separated this for unit testing purposes, made it public for this purpose as well
@@ -50,6 +51,7 @@ public class BarChartRacer {
         bars.sort(null);
         return bars;
     }
+
 
     /**
      * sort the bars and add the bars
@@ -94,11 +96,12 @@ public class BarChartRacer {
 
                 //if the entry size is not 1, and if the length of the line is not blank
                 if (entries.length==1 && line.length()!=0) {
-                    //read the same number of lines afterwards
+
+                    //get the number of bars needed to read in
                     numBars = Integer.parseInt(line);
-                    ArrayList<Bar> bars = new ArrayList<>();
 
                     //read in the number of required bars; if less than required, read in all
+                    ArrayList<Bar> bars = new ArrayList<>();
                     for (int i = 0; i < numBars; i++) {
                         line = scan.nextLine();
                         entries = line.split(",");
