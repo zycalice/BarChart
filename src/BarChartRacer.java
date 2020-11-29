@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class BarChartRacer {
 
     private int numBarsToShow;
+    private String fileName;
     UserInputCheck ui = new UserInputCheck();
 
     /**
@@ -15,6 +16,27 @@ public class BarChartRacer {
         //ask the user for the number of bars they want to see
         System.out.println("Please enter the number of bars you want to see.");
         this.numBarsToShow = ui.validInteger(0, 1000000);
+
+        System.out.println("Please enter the data file including .txt at the end.");
+        this.fileName = ui.validTXTFileName();
+    }
+
+
+    /**
+     * getter
+     * @return number of bars to show
+     */
+    public int getNumBarsToShow() {
+        return numBarsToShow;
+    }
+
+
+    /**
+     * getter
+     * @return file name to graph
+     */
+    public String getFileName() {
+        return fileName;
     }
 
     /**

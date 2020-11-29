@@ -3,9 +3,34 @@ Authors: Xinyi Li, Yuchen Zhang
 Inherited from HangmanController
  */
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserInputCheck {
+
+    /**
+     * check if the input is a valid file name format with filetype such as txt
+     * @param userInput a file name with the fileType like .txt
+     * @return true if it is a valid file name; false if it is not
+     */
+    protected boolean inputIsFileName(String userInput, String fileType){
+        String[] splitInput =  userInput.split("\\.");
+        if (splitInput.length==2) return splitInput[1].equals(fileType);
+        else return false;
+    }
+
+    protected String validTXTFileName(){
+        Scanner scnr = new Scanner(System.in);
+        String userInputS = scnr.nextLine();
+
+        // create a boolean to check for all possible errors
+        while(!inputIsFileName(userInputS,"txt")) {
+            System.out.println("Invalid integer; try again according to the requirement.");
+            userInputS = scnr.nextLine();
+        }
+
+        return userInputS;
+    }
 
     /**
      * check if input is an integer
