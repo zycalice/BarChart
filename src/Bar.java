@@ -9,7 +9,7 @@ public class Bar implements Comparable<Bar> {
         // Throw error when the below condition happens
         if (name == null) throw new IllegalArgumentException("name is null");
         if (category == null) throw new IllegalArgumentException("category is null");
-        if (value <= 0) throw new IllegalArgumentException("value must be positive");
+        if (value < 0) throw new IllegalArgumentException("value must be non-negative");
 
         this.name = name;
         this.value = value;

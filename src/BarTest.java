@@ -22,7 +22,7 @@ class BarTest {
     @Test
     void testConstructorIllegalName(){
         Exception e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Bar b = new Bar(null, 20,"haha" );
+            Bar b = new Bar(null, 20,"hahaha" );
         });
         assertEquals("name is null",e.getMessage());
     }
@@ -31,18 +31,9 @@ class BarTest {
     @Test
     void testConstructorIllegalValueNegative(){
         Exception e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Bar b = new Bar("haha", -1,"haha" );
+            Bar b = new Bar("haha", -1,"hahaha" );
         });
-        assertEquals("value must be positive", e.getMessage());
-    }
-
-    //test when value is zero
-    @Test
-    void testConstructorIllegalValueZero(){
-        Exception e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            Bar b = new Bar("haha", -1,"haha" );
-        });
-        assertEquals("value must be positive", e.getMessage());
+        assertEquals("value must be non-negative", e.getMessage());
     }
 
     //test when category is null
@@ -53,6 +44,25 @@ class BarTest {
         });
         assertEquals("category is null", e.getMessage());
     }
+
+    //test when value is zero
+    @Test
+    void testConstructorValidValue0(){
+        Bar b = new Bar("haha", 0,"hahaha" );
+        assertEquals("haha", b.getName());
+        assertEquals(0, b.getValue());
+        assertEquals("hahaha", b.getCategory());
+    }
+
+    //test when input is simply valid
+    @Test
+    void testConstructorValid(){
+        Bar b = new Bar("haha", 100,"hahaha" );
+        assertEquals("haha", b.getName());
+        assertEquals(100, b.getValue());
+        assertEquals("hahaha", b.getCategory());
+    }
+
 
     //test name getter
     @Test
