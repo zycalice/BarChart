@@ -9,6 +9,7 @@ class BarTest {
     Bar b2;
     Bar b3;
 
+    //setup before each test
     @BeforeEach
     void setUp(){
         b1 = new Bar("bar1",20,"a");
@@ -17,67 +18,92 @@ class BarTest {
 
     }
 
+    //test when name is null
     @Test
-    void testConstructor1(){
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+    void testConstructorIllegalName(){
+        Exception e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Bar b = new Bar(null, 20,"haha" );
         });
+        assertEquals("name is null",e.getMessage());
     }
 
+    //test when value is negative
     @Test
-    void testConstructor2(){
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+    void testConstructorIllegalValueNegative(){
+        Exception e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Bar b = new Bar("haha", -1,"haha" );
         });
+        assertEquals("value must be positive", e.getMessage());
     }
 
+    //test when value is zero
     @Test
-    void testConstructor3(){
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+    void testConstructorIllegalValueZero(){
+        Exception e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Bar b = new Bar("haha", -1,"haha" );
+        });
+        assertEquals("value must be positive", e.getMessage());
+    }
+
+    //test when category is null
+    @Test
+    void testConstructorIllegalCategory(){
+        Exception e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Bar b = new Bar("haha", 1,null);
         });
+        assertEquals("category is null", e.getMessage());
     }
 
+    //test name getter
     @Test
     void getName() {
         assertEquals("bar1", b1.getName());
     }
 
+    //test value getter
     @Test
     void getValue() {
         assertEquals(20, b1.getValue());
     }
 
+    //test category getter
     @Test
     void getCategory() {
         assertEquals("a", b1.getCategory());
     }
 
+    //test compareTo when this bar's value is greater than other bar; return -1 bc reverse sort
     @Test
     void compareToGreater() {
         assertEquals(-1, b1.compareTo(b2));
     }
 
+    //test compareTo when this bar's value is less than other bar; return 1 bc reverse sort
     @Test
     void compareToLess() { assertEquals(1, b2.compareTo(b1)); }
 
+    //test compareTo when this bar's value is equal to itself
     @Test
     void compareToEqual1() {
         assertEquals(0, b1.compareTo(b1));
     }
 
+    //test compareTo when this bar's value is equal to that bar
     @Test
     void compareToEqual2() {
         assertEquals(0, b1.compareTo(b3));
     }
 
+    //test compareTo when there is a null pointer exception
     @Test
     void compareToEqualThrowException() {
-        Assertions.assertThrows(NullPointerException.class, () -> {
+        Exception e = Assertions.assertThrows(NullPointerException.class, () -> {
             int result = b1.compareTo(null);
         });
+        assertEquals("Input is null; should be a Bar",e.getMessage());
     }
 
+    //test toString, which is not really needed for this assignment
     @Test
     void testToString(){
         assertEquals("bar1_20", b1.toString());

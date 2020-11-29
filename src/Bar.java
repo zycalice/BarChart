@@ -36,7 +36,7 @@ public class Bar implements Comparable<Bar> {
     @Override
     public int compareTo(Bar that){
         if (that == null){
-            throw new NullPointerException("Input (should be bar) is null.");
+            throw new NullPointerException("Input is null; should be a Bar");
         }
         if (this == that) return 0;
         //reverse sort
