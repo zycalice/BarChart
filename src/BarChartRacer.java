@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +10,7 @@ public class BarChartRacer {
     private int numBarsToShow;
     private String fileName;
     UserInputCheck ui = new UserInputCheck();
+    Path currentRelativePath = Paths.get("");
 
     /**
      * constructor, set numBarsToShow to a user input
@@ -15,6 +18,8 @@ public class BarChartRacer {
     public BarChartRacer(){
         //ask the user for the filename
         System.out.println("Please enter the full data file path including .txt at the end.");
+        System.out.println("The current path is :"+ currentRelativePath.toAbsolutePath().toString());
+        System.out.println("You can use this information to decide how to enter the data file name.");
         this.fileName = ui.validTXTFileName();
 
         //ask the user for the number of bars they want to see
